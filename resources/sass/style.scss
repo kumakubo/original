@@ -1,8 +1,13 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
+}
+
+.icon{
+  width: 80px;
+  height: 80px;
 }
 
 .navbar-laravel {
@@ -11,11 +16,11 @@ body {
 }
 
 .navbar-brand {
-  color: #fff !important;
+  color: #000 !important;
 }
 
 .nav-link {
-  color: #fff !important;
+  color: #000 !important;
 }
 
 .table-dark {

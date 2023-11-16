@@ -9,6 +9,7 @@ class PostController extends Controller
 {
     public function show()
     {
+        //dd('showが実行された');
         return view('mypage.index');
     }
     

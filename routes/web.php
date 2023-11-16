@@ -17,7 +17,7 @@ Route::get('/', [HomeController::class,'top'])->name('home');
 
 
 use App\Http\Controllers\Admin\PostController;
-Route::controller(PostController::class)->prefix('mypage')->name('mypage.')->group(function () {
+Route::controller(PostController::class)->prefix('mypage')->name('mypage.')->middleware('auth')->group(function () {
     Route::get('/', 'show')->name('mypage.show');
     Route::get('manga', 'myposts')->name('manga.myposts');
     Route::get('manga/create', 'create')->name('manga.create');
@@ -43,4 +43,4 @@ use App\Http\Controllers\ProfileController as PublicProfileController;
 Route::get('/user_profile', [PublicProfileController::class, 'show'])->name('profile.show');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'top'])->name('home');
