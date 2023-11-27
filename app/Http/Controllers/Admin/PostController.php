@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
+use App\Models\History;
+use Carbon\Carbon;
+
 
 class PostController extends Controller
 {
@@ -60,6 +63,7 @@ class PostController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, Post::$rules);
+        //PostModelからデータを受け取る
         $posts = Post::find($request->id);
         //送信されてきたフォームデータを格納する
         $post_form = $request->all();
@@ -78,6 +82,11 @@ class PostController extends Controller
         unset($post_form['_token']);
         
         $posts->fill($post_form)->save();
+        
+        $history = new History();
+        $history->post_id = $posts->id;
+        $history->edited_at = Carbon::now();
+        $history->save();
         
         return redirect('mypage/manga/');
     }

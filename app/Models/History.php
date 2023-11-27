@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Profile extends Model
+class History extends Model
 {
     use HasFactory;
     
     protected $guarded = array('id');
     
     public static $rules = array(
-        'name' => 'required',
-        'introduction' => 'required',
+        'post_id' => 'required',
+        'edited_at' => 'required',
     );
     
 }

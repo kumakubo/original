@@ -22,31 +22,42 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                  <!-- Right Side Of Navbar -->
-                        <!-- Authentication Links -->
-                        {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
-                        @guest
-                            <li><a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a></li>
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
-                        {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
-                        @else
-                            <li class="nav-item dropdown">
-                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                 </a>
+                <!-- Authentication Links -->
+                {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
+                @guest
+                    <li><a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a></li>
+                    <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.login') }}</a></li>
+                {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
+                @else
+                    <li class="nav-item dropdown">
+                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                         </a>
 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('messages.logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                            @endguest
-                @yield('navbar')
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('messages.logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('mypage.manga.create') }}">新規投稿</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('mypage.manga.index') }}">投稿一覧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('mypage.mypage.show') }}">マイページ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('mypage.profile.create') }}">プロフィール作成</a>
+                    </li>
+                @endguest
                
             </ul>
         </div>
