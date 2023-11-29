@@ -14,8 +14,10 @@ class ShowController extends Controller
         return view('manga.index',['posts'=> $posts]);
     }
     
-    public function show()
+    public function show($post_id)
     {
-        return view('manga.post');
+        //Postモデルをデータベースから取得
+        $post = Post::findOrFail($post_id);
+        return view('manga.post',['post' => $post]);
     }
 }

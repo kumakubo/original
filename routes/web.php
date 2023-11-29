@@ -41,7 +41,7 @@ use App\Http\Controllers\Admin\PostController;
 
 use App\Http\Controllers\ShowController as PublicShowController;
     Route::get('/manga', [PublicShowController::class, 'index'])->name('manga.index');
-    Route::get('/manga/post', [PublicShowController::class, 'show'])->name('manga.show');
+    Route::get('/manga/post/{post_id}', [PublicShowController::class, 'show'])->name('manga.show');
 
 
 use App\Http\Controllers\ProfileController as PublicProfileController;

@@ -1,10 +1,5 @@
 @extends('layouts.layout')
 @section('title','プロフィール編集')
-@section('navbar')    
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('mypage.mypage.show') }}">マイページ</a>
-    </li>
-@endsection
 @section('content')
     <div class="container">
             <div class="row">

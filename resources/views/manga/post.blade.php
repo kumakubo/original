@@ -1,10 +1,10 @@
 @extends('layouts.layout')
-@section('title','記事')
-@section('navbar')
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('manga.index') }}">記事一覧に戻る</a>
-    </li>
-@endsection
+@section('title','post')
 @section('content')
-<h1>記事1</h1>
+    <h2>{{ $post->title }}</h2>
+    <p>{{ $post->body }}</p>
+    
+    @if($post->image_path)
+        <img src="{{ secure_asset('storage/image/' . $post->image_path) }}" alt="Post Image">
+    @endif
 @endsection

@@ -45,16 +45,16 @@
                             </form>
                         </div>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('mypage.manga.create') }}">新規投稿</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('mypage.manga.index') }}">投稿一覧</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('mypage.mypage.show') }}">マイページ</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ route('mypage.profile.create') }}">プロフィール作成</a>
                     </li>
                 @endguest

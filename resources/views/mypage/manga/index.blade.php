@@ -1,13 +1,5 @@
 @extends('layouts.layout')
 @section('title','投稿一覧')
-@section('navbar')
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('mypage.mypage.show') }}">マイページ</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="{{ route('mypage.manga.create') }}">新規投稿</a>
-    </li>
-@endsection
 @section('content')
     <div class="container">
         <div class="row">
@@ -35,7 +27,7 @@
         <div class="row">
             <div class="list-news col-md-12 mx-auto">
                 <div class="row">
-                    <table class="table table-dark">
+                    <table class="table table-light">
                         <thead>
                             <tr>
                                 <th width="10%">ID</th>
