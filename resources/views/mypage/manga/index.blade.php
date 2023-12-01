@@ -37,19 +37,22 @@
                         </thead>
                         <tbody>
                             @foreach($searchResults as $posts)
-                                <tr>
-                                    <th>{{ $posts->id }}</th>
-                                    <td>{{ Str::limit($posts->title, 100) }}</td>
-                                    <td>{{ Str::limit($posts->body, 250) }}</td>
-                                    <td>
-                                        <div>
-                                            <a href="{{ route('mypage.manga.edit',['id' => $posts->id]) }}">編集</a>
-                                        </div>
-                                        <div>
-                                            <a href="{{ route('mypage.manga.delete',['id' => $posts->id]) }}">削除</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                <!--ユーザーが投稿した記事のみ表示 -->
+                                @if(auth()->check() && $posts->user_id == auth()->user()->id)
+                                    <tr>
+                                        <th>{{ $posts->id }}</th>
+                                        <td>{{ Str::limit($posts->title, 100) }}</td>
+                                        <td>{{ Str::limit($posts->body, 250) }}</td>
+                                        <td>
+                                            <div>
+                                                <a href="{{ route('mypage.manga.edit',['id' => $posts->id]) }}">編集</a>
+                                            </div>
+                                            <div>
+                                                <a href="{{ route('mypage.manga.delete',['id' => $posts->id]) }}">削除</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

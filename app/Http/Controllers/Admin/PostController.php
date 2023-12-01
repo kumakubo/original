@@ -103,10 +103,14 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $cond_title = $request->cond_title;
+        $user = auth()->user(); //認証されたユーザーを取得
+        
         if ($cond_title != '') {
-            $searchResults = Post::where('title', $cond_title)->get();
+            //そのユーザーの特定のタイトルの投稿だけを取得
+            $searchResults = $user->posts()->where('title', $cond_title)->get();
         } else {
-            $searchResults = Post::all();
+            //タイトルが指定されなければ、そのユーザーの投稿全て取得
+            $searchResults = $user->posts;
         }
         return view('mypage.manga.index', ['searchResults' => $searchResults, 'cond_title' => $cond_title]);
     }
