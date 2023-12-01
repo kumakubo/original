@@ -22,4 +22,10 @@ class Post extends Model
     {
     return $this->hasMany('App\Models\History');
     }
+    
+    //userとの関係
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

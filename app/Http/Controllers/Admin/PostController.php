@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Post;
 use App\Models\History;
@@ -34,6 +35,14 @@ class PostController extends Controller
         
         $post = new Post;
         $form = $request->all();
+        
+        if(Auth::check()) {
+            //ログイン中のユーザーIDを取得
+            $user_id = Auth::user()->id;
+            
+            //ユーザー情報を新しい投稿に紐づける
+            $post->user_id = $user_id;
+        }
         
         if(isset($form['image'])) {
             $path = $request->file('image')->store('public/image');

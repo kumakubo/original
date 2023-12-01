@@ -16,4 +16,9 @@ class Profile extends Model
         'introduction' => 'required',
     );
     
+    //One to Oneのリレーション
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

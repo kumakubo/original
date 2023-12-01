@@ -18,8 +18,12 @@ class ProfileController extends Controller
     {   
         $this->validate($request, Profile::$rules);
         
+        //ユーザーIDを取得
+        $user_id = auth()->user()->id;
+        
         $profile = new Profile;
         $form = $request->all();
+        $form['user_id'] = $user_id; //ユーザーIDプロフィールに追加
         
         if(isset($form['image'])) {
             $path = $request->file('image')->store('public/image');

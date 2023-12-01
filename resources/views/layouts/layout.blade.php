@@ -10,9 +10,17 @@
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
     {{-- この章の後半で作成するCSSを読み込みます --}}
     <link href="{{ secure_asset('css/style.css') }}" rel="stylesheet">
+    
+    <style>
+        @guest
+            .navbar-nav {
+                margin-left: 0 !important;
+            }
+        @endguest
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href=" {{ route('manga.index') }}">
             <img src="https://i.imgur.com/ld3xoQv.png" alt="サイトロゴ" class="icon">
         </a>
@@ -20,7 +28,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav">
                  <!-- Right Side Of Navbar -->
                 <!-- Authentication Links -->
                 {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
@@ -45,20 +53,19 @@
                             </form>
                         </div>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('mypage.manga.create') }}">新規投稿</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('mypage.manga.index') }}">投稿一覧</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('mypage.mypage.show') }}">マイページ</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('mypage.profile.create') }}">プロフィール作成</a>
                     </li>
                 @endguest
-               
             </ul>
         </div>
     </nav>

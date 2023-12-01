@@ -25,11 +25,19 @@
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         {{-- この章の後半で作成するCSSを読み込みます --}}
         <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
+        
+        <style>
+        @guest
+            .navbar-nav {
+                margin-left: 0 !important;
+            }
+        @endguest
+        </style>
     </head>
     <body>
         <div id="app">
             {{-- 画面上部に表示するナビゲーションバーです。 --}}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href=" {{ route('manga.index') }}">
             <img src="https://i.imgur.com/ld3xoQv.png" alt="サイトロゴ" class="icon">
         </a>
