@@ -23,7 +23,7 @@ class ProfileController extends Controller
         
         $profile = new Profile;
         $form = $request->all();
-        $form['user_id'] = $user_id; //ユーザーIDプロフィールに追加
+        $form['user_id'] = $user_id; //ユーザーIDをプロフィールに追加
         
         if(isset($form['image'])) {
             $path = $request->file('image')->store('public/image');
@@ -75,4 +75,13 @@ class ProfileController extends Controller
         return redirect('/mypage');
     }
     
+    public function show()
+    {
+        //ログインユーザーのIDを取得
+        $user_id = auth()->user()->id;
+        
+        //プロフィール情報を取得
+        $profile = Profile::where('user_id', $user_id)->first();
+        return view('mypage.index',['profile' => $profile]);
+    }
 }

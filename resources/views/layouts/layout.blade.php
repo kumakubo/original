@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href=" {{ route('manga.index') }}">
             <img src="https://i.imgur.com/ld3xoQv.png" alt="サイトロゴ" class="icon">
         </a>
@@ -70,7 +70,9 @@
         </div>
     </nav>
     <div>
-        @yield('content')
+        <main class="py-4">
+            @yield('content')
+        </main>
     </div>
 
     

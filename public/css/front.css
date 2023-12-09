@@ -9,7 +9,7 @@ body {
 
 .navbar-brand,
 .nav-link {
-  color: #000;
+  color: #fff;
 }
 
 .navbar-nav {
@@ -46,4 +46,17 @@ body {
 }
 .posts .post .image img {
   width: 250px;
+}
+
+.navbar-nav .nav-item:hover {
+  background-color: #343a40;
+}
+
+.navbar-nav .nav-item.active .nav-link {
+  color: #007bff;
+  background-color: #fff;
+}
+
+.navbar-nav .nav-item.active:hover {
+  background-color: #fff;
 }

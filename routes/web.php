@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\PostController;
     
  use App\Http\Controllers\Admin\ProfileController;
     Route::controller(ProfileController::class)->prefix('mypage')->name('mypage.')->group(function () {
+    Route::get('/', 'show')->name('mypage.show');
     Route::get('create_profile', 'create')->name('profile.create');
     Route::post('create_profile', 'add')->name('profile.add');
     Route::get('edit_profile', 'edit')->name('profile.edit');
@@ -45,7 +46,7 @@ use App\Http\Controllers\ShowController as PublicShowController;
 
 
 use App\Http\Controllers\ProfileController as PublicProfileController;
-    Route::get('/user_profile', [PublicProfileController::class, 'show'])->name('profile.show');
+    Route::get('/user_profile/{userId}', [PublicProfileController::class, 'show'])->name('profile.show');
     Auth::routes();
     
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'top'])->name('home');
