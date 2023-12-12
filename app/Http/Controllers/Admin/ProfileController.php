@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Profile;
+use App\Models\Post;
 
 class ProfileController extends Controller
 {
@@ -82,6 +83,10 @@ class ProfileController extends Controller
         
         //プロフィール情報を取得
         $profile = Profile::where('user_id', $user_id)->first();
-        return view('mypage.index',['profile' => $profile]);
+        
+        //ユーザーが投稿した記事を取得
+        $posts = Post::where('user_id' , auth()->id())->get();
+        
+        return view('mypage.index', compact('profile', 'posts'));
     }
 }

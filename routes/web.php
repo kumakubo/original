@@ -27,8 +27,7 @@ use App\Http\Controllers\Admin\PostController;
     Route::get('manga/delete', 'delete')->name('manga.delete');
     
 });
-    
-    
+
  use App\Http\Controllers\Admin\ProfileController;
     Route::controller(ProfileController::class)->prefix('mypage')->name('mypage.')->group(function () {
     Route::get('/', 'show')->name('mypage.show');
