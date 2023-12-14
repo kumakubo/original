@@ -13,23 +13,12 @@ use Carbon\Carbon;
 
 class PostController extends Controller
 {
-    public function show()
-    {
-        //dd('showが実行された');
-        return view('mypage.index');
-    }
-    
-     public function myposts()
-    {
-        return view('mypage.manga.index');
-    }
-    
-    public function create()
+    public function add()
     {
         return view('mypage.manga.create');
     }
     
-    public function add(Request $request)
+    public function create(Request $request)
     {
         $this->validate($request, Post::$rules);
         
@@ -115,9 +104,9 @@ class PostController extends Controller
         return view('mypage.manga.index', ['searchResults' => $searchResults, 'cond_title' => $cond_title]);
     }
     
-    public function delete(Request $request)
+    public function delete(Request $request, $id)
     {
-        $posts = Post::find($request->id);
+        $posts = Post::find($id);
         
         $posts->delete();
         

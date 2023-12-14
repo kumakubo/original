@@ -18,13 +18,12 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\Admin\PostController;
     Route::controller(PostController::class)->prefix('mypage')->name('mypage.')->middleware('auth')->group(function () {
-    Route::get('/', 'show')->name('mypage.show');
     Route::get('manga', 'index')->name('manga.index');
-    Route::get('manga/create', 'create')->name('manga.create');
-    Route::post('manga/create', 'add')->name('manga.add');
+    Route::get('manga/create', 'add')->name('manga.add');
+    Route::post('manga/create', 'create')->name('manga.create');
     Route::get('manga/edit', 'edit')->name('manga.edit');
     Route::post('manga/edit', 'update')->name('manga.update');
-    Route::get('manga/delete', 'delete')->name('manga.delete');
+    Route::get('manga/delete/{id}', 'delete')->name('manga.delete');
     
 });
 
