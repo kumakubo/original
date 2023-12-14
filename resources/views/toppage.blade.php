@@ -48,6 +48,7 @@
                 <a href="{{ route('manga.index') }}">記事閲覧</a>
                 <a href="{{ route('register') }}">新規登録</a>
                 <a href="{{ route('login') }}">ログイン</a>
+                 <a href="{{ route('mypage.manga.create') }}">記事作成</a>
             </div>
         </div>
         <script src="https://opcode.jquery.com/jquery-3.3.1.slim.min.js"></script>
