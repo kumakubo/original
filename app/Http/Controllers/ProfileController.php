@@ -13,6 +13,9 @@ class ProfileController extends Controller
     {
         $profile = Profile::where('user_id', $userId)->first();
         $posts = Post::where('user_id', $userId)->get();
-        return view('user_profile',['profile' => $profile, 'posts' => $posts]);
+        return view('user_profile',[
+            'profile' => $profile,
+            'posts' => $posts,
+        ]);
     }
 }
