@@ -9,8 +9,15 @@ class ShowController extends Controller
 {
     public function index(Request $request)
     {
-        $posts = Post::all()->sortByDesc('updated_at');
+        //タイトルで記事を検索する
+        $query = $request->input('search');
         
+        $posts = Post::when($query, function ($query) use ($request) {
+                return $query->where('title', 'like', '%' . $request->input('search') . '%');
+            })
+            ->orderByDesc('updated_at')
+            ->get();
+            
         return view('manga.index',['posts'=> $posts]);
     }
     
@@ -20,4 +27,5 @@ class ShowController extends Controller
         $post = Post::findOrFail($post_id);
         return view('manga.post',['post' => $post]);
     }
+    
 }

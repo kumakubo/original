@@ -2,6 +2,18 @@
 @section('title','記事一覧')
 @section('content')
     <div class="container">
+        <!--検索フォームの追加-->
+        <form action="{{ url()->current() }}" method="GET">
+            <div class="form-group mb-3">
+                <label for="search">タイトル検索:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search" name="search" value="{{ request('search') }}">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">検索</button>
+                    </div>
+                </div>
+            </div>
+        </form>
         <hr color="#c0c0c0">
         <div class="row">
             <div class="posts col-md-8 mx-auto mt-3">
